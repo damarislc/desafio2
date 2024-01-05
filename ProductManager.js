@@ -9,6 +9,7 @@ const fs = require("fs");
  * *getProduct - Devuelve el arreglo de objetos
  * *getProductById - Devuelve el objeto según su Id
  * *updateProduct - Actualiza el objeto con los datos de otro objeto
+ * *deleteProduct - Borrar el objeto según su Id
  */
 class ProductManager {
   /**
@@ -152,7 +153,7 @@ class ProductManager {
   }
 
   /**
-   * Métod para eliminar un producto según su id.
+   * Método para eliminar un producto según su id.
    * @param {*} id el id del producto a eliminar
    * @returns none
    */
