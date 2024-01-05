@@ -179,7 +179,7 @@ class ProductManager {
 
 //Los tests que utilicé para probar el código, descomentar si se quieren reutilizar.
 
-const productM = new ProductManager();
+/* const productM = new ProductManager();
 console.log(productM.getProducts());
 const product1 = {
   title: "Mi producto 1",
@@ -220,4 +220,4 @@ console.log("Los productos son:", productM.getProducts());
 
 console.log("****Product by id******");
 console.log(productM.getProductById(2));
-console.log(productM.getProductById(5));
+console.log(productM.getProductById(5)); */
