@@ -152,6 +152,34 @@ class ProductManager {
   }
 
   /**
+   * Métod para eliminar un producto según su id.
+   * @param {*} id el id del producto a eliminar
+   * @returns none
+   */
+  deleteProduct(id) {
+    //Obtiene todos los productos desde el JSON y los añade al arreglo
+    this.getProducts();
+
+    //Si el id no existe, muestra un mensaje de error y se sale del método
+    if (this.products.find((product) => product.id === id) === undefined) {
+      console.error(`El id ${id} no existe, no se puede eliminar el producto.`);
+      return;
+    }
+
+    //Obtiene el index en el array del objeto con el id a eliminar
+    const objIndex = this.products.findIndex((product) => product.id === id);
+    this.products.splice(objIndex, 1);
+
+    //Reescribe el archivo con el objeto borrado
+    try {
+      fs.writeFileSync(this.path, JSON.stringify(this.products));
+      console.log("Objeto borrado correctamente en el archivo", this.path);
+    } catch (error) {
+      console.error("Error al actualizar en el archivo", error);
+    }
+  }
+
+  /**
    * Método para crear el id autoincremental.
    * @returns el nuevo id para el objeto.
    */
@@ -220,4 +248,10 @@ console.log("Los productos son:", productM.getProducts());
 
 console.log("****Product by id******");
 console.log(productM.getProductById(2));
-console.log(productM.getProductById(5)); */
+console.log(productM.getProductById(5));
+
+******* DELETE PRODCUT ********
+
+productM.deleteProduct(2);
+
+console.log("Los productos son:", productM.getProducts()); */
